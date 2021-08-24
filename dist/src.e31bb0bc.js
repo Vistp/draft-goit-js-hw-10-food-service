@@ -2400,51 +2400,44 @@ require("./sass/main.scss");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// создание шаблона и добаление карточек в HTML
 var menuEl = document.querySelector('.js-menu');
 var menuCards = createMenuCard(_menu.default);
 menuEl.insertAdjacentHTML('beforeend', menuCards);
 
 function createMenuCard(cards) {
   return cards.map(_productCard.default).join('');
-}
+} // переключение темы
 
-var checkboxEl = document.querySelector('.theme-switch__toggle'); // console.log(checkboxEl);
 
-var bodyEl = document.querySelector('body'); // console.log(bodyEl);
-
+var checkboxEl = document.querySelector('.theme-switch__toggle');
+var bodyEl = document.querySelector('body');
 var Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme'
 };
+bodyEl.classList.add(Theme.LIGHT);
 
 if (localStorage.getItem('theme')) {
   checkboxEl.setAttribute('checked', true);
-  console.log('Темная тема после перезагрузки'); // bodyEl.classList.add('dark-theme');
-
+  console.log('Темная тема после перезагрузки');
   bodyEl.classList.add(Theme.DARK);
 }
 
 var onChange = function onChange() {
   // console.log('нажат переключатель');
-  bodyEl.classList.toggle('dark-theme');
+  bodyEl.classList.toggle(Theme.DARK);
 
   if (bodyEl.classList.contains(Theme.DARK)) {
-    console.log('темная тема');
-    localStorage.setItem('theme', 'dark'); // checkboxEl.setAttribute('checked', true);
+    // console.log('темная тема');
+    localStorage.setItem('theme', 'dark');
   } else {
-    console.log('светлая тема'); // localStorage.removeItem('theme');
-    // localStorage.setItem('theme', 'light'); не работает приперезагрузке
-
+    // console.log('светлая тема');
     localStorage.removeItem('theme');
   }
 };
 
-checkboxEl.addEventListener('change', onChange); // ---- из занятия -----
-// console.log(localStorage);
-// localStorage.setItem('Tema', 'dark');
-// localStorage.setItem('my-user', JSON.stringify({ name: 'Mango', age: 24 }));
-// localStorage.setItem('my-user-1', ({ name: 'Mango', age: 24 }));
-// console.log(localStorage.getItem('Tema'));
+checkboxEl.addEventListener('change', onChange);
 },{"./templates/product-card.hbs":"templates/product-card.hbs","./menu.json":"menu.json","./sass/main.scss":"sass/main.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -2473,7 +2466,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52907" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53147" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
