@@ -2144,14 +2144,12 @@ var _handlebars = _interopRequireDefault(require("handlebars/dist/handlebars.run
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-var templateFunction = _handlebars.default.template({
-  "1": function _(container, depth0, helpers, partials, data) {
+const templateFunction = _handlebars.default.template({
+  "1": function (container, depth0, helpers, partials, data) {
     return "                <li class=\"tag-list__item\">" + container.escapeExpression(container.lambda(depth0, depth0)) + "</li>\n";
   },
   "compiler": [8, ">= 4.3.0"],
-  "main": function main(container, depth0, helpers, partials, data) {
+  "main": function (container, depth0, helpers, partials, data) {
     var stack1,
         helper,
         alias1 = depth0 != null ? depth0 : container.nullContext || {},
@@ -2166,7 +2164,7 @@ var templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<li class=\"menu__item\">\n    <article class=\"card\">\n        <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "image") || (depth0 != null ? lookupProperty(depth0, "image") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    return "<li class=\"menu__item\">\n    <article class=\"card\">\n        <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "image") || (depth0 != null ? lookupProperty(depth0, "image") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "image",
       "hash": {},
       "data": data,
@@ -2180,7 +2178,7 @@ var templateFunction = _handlebars.default.template({
           "column": 27
         }
       }
-    }) : helper)) + "\"\n            alt=\"" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"\n            alt=\"" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "name",
       "hash": {},
       "data": data,
@@ -2194,7 +2192,7 @@ var templateFunction = _handlebars.default.template({
           "column": 25
         }
       }
-    }) : helper)) + "\" class=\"card__image\" />\n        <div class=\"card__content\">\n            <h2 class=\"card__name\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\" class=\"card__image\" />\n        <div class=\"card__content\">\n            <h2 class=\"card__name\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "name",
       "hash": {},
       "data": data,
@@ -2208,7 +2206,7 @@ var templateFunction = _handlebars.default.template({
           "column": 43
         }
       }
-    }) : helper)) + "</h2>\n            <p class=\"card__price\">\n                <i class=\"material-icons\"> monetization_on </i>\n                " + alias4((helper = (helper = lookupProperty(helpers, "price") || (depth0 != null ? lookupProperty(depth0, "price") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</h2>\n            <p class=\"card__price\">\n                <i class=\"material-icons\"> monetization_on </i>\n                " + alias4((helper = (helper = lookupProperty(helpers, "price") || (depth0 != null ? lookupProperty(depth0, "price") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "price",
       "hash": {},
       "data": data,
@@ -2222,7 +2220,7 @@ var templateFunction = _handlebars.default.template({
           "column": 25
         }
       }
-    }) : helper)) + " кредитов\n            </p>\n\n            <p class=\"card__descr\">\n                " + alias4((helper = (helper = lookupProperty(helpers, "description") || (depth0 != null ? lookupProperty(depth0, "description") : depth0)) != null ? helper : alias2, _typeof(helper) === alias3 ? helper.call(alias1, {
+    }) : helper)) + " кредитов\n            </p>\n\n            <p class=\"card__descr\">\n                " + alias4((helper = (helper = lookupProperty(helpers, "description") || (depth0 != null ? lookupProperty(depth0, "description") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "description",
       "hash": {},
       "data": data,
@@ -2401,8 +2399,8 @@ require("./sass/main.scss");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // создание шаблона и добаление карточек в HTML
-var menuEl = document.querySelector('.js-menu');
-var menuCards = createMenuCard(_menu.default);
+const menuEl = document.querySelector('.js-menu');
+const menuCards = createMenuCard(_menu.default);
 menuEl.insertAdjacentHTML('beforeend', menuCards);
 
 function createMenuCard(cards) {
@@ -2410,9 +2408,9 @@ function createMenuCard(cards) {
 } // переключение темы
 
 
-var checkboxEl = document.querySelector('.theme-switch__toggle');
-var bodyEl = document.querySelector('body');
-var Theme = {
+const checkboxEl = document.querySelector('.theme-switch__toggle');
+const bodyEl = document.querySelector('body');
+const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme'
 };
@@ -2424,7 +2422,7 @@ if (localStorage.getItem('theme')) {
   bodyEl.classList.add(Theme.DARK);
 }
 
-var onChange = function onChange() {
+const onChange = () => {
   // console.log('нажат переключатель');
   bodyEl.classList.toggle(Theme.DARK);
 
